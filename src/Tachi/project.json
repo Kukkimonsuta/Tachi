@@ -1,0 +1,25 @@
+﻿{
+    "version": "1.0.0-rc1-*",
+    "description": "ASP.NET 5 support library for tachi.js.",
+    "authors": [ "Lukáš Novotný" ],
+    "tags": [ "tachi" ],
+    "projectUrl": "https://github.com/Kukkimonsuta/Tachi",
+    "licenseUrl": "https://github.com/Kukkimonsuta/Tachi/blob/master/LICENSE",
+
+    "dependencies": {
+        "Microsoft.AspNet.Mvc.TagHelpers": "6.0.0-rc1-final"
+    },
+
+    "frameworks": {
+        "net451": { },
+        "dotnet5.4": {
+            "dependencies": {
+                "Microsoft.CSharp": "4.0.1-beta-23516",
+                "System.Collections": "4.0.11-beta-23516",
+                "System.Linq": "4.0.1-beta-23516",
+                "System.Runtime": "4.0.21-beta-23516",
+                "System.Threading": "4.0.11-beta-23516"
+            }
+        }
+    }
+}
