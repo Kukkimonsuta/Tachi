@@ -7,6 +7,66 @@ using System.Linq;
 
 namespace Tachi.Bootstrap
 {
+	[HtmlTargetElement(TagName)]
+	public class HandlebarsTemplateTagHelper : TagHelper
+	{
+		public const string TagName = "handlebars-template";
+
+		public HandlebarsTemplateTagHelper(IHtmlGenerator generator)
+		{
+			if (generator == null)
+				throw new ArgumentNullException(nameof(generator));
+
+			Generator = generator;
+		}
+
+		protected IHtmlGenerator Generator { get; }
+
+		[HtmlAttributeNotBound]
+		[ViewContext]
+		public ViewContext ViewContext { get; set; }
+
+		public override void Process(TagHelperContext context, TagHelperOutput output)
+		{
+			output.TagName = "script";
+			output.Attributes["type"] = "text/x-handlebars-template";
+		}
+	}
+
+	[HtmlTargetElement(Attributes = MetaAttributeName)]
+	public class MetaTagHelper : TagHelper
+	{
+		public const string MetaAttributeName = "chi-meta";
+
+		public MetaTagHelper(IHtmlGenerator generator)
+		{
+			if (generator == null)
+				throw new ArgumentNullException(nameof(generator));
+
+			Generator = generator;
+		}
+
+		protected IHtmlGenerator Generator { get; }
+
+		[HtmlAttributeName(MetaAttributeName)]
+		public ModelExpression Meta { get; set; }
+
+		[HtmlAttributeNotBound]
+		[ViewContext]
+		public ViewContext ViewContext { get; set; }
+
+		public override void Process(TagHelperContext context, TagHelperOutput output)
+		{
+			if (context == null)
+				throw new ArgumentNullException(nameof(context));
+			if (output == null)
+				throw new ArgumentNullException(nameof(output));
+
+			if (Meta.ModelExplorer.Metadata.IsRequired)
+				output.Attributes.Add(new TagHelperAttribute() { Name = "chi-meta-required", Minimized = true });
+		}
+	}
+
 	[HtmlTargetElement(Attributes = ForAttributeName + "," + WrapAttributeName)]
 	public class WrapTagHelper : TagHelper
 	{
