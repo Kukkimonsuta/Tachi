@@ -1,7 +1,7 @@
-﻿using Microsoft.AspNet.Mvc.ModelBinding;
-using Microsoft.AspNet.Mvc.Rendering;
-using Microsoft.AspNet.Mvc.ViewFeatures;
-using Microsoft.AspNet.Razor.TagHelpers;
+﻿using Microsoft.AspNetCore.Mvc.ModelBinding;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.AspNetCore.Mvc.ViewFeatures;
+using Microsoft.AspNetCore.Razor.TagHelpers;
 using System;
 using System.Linq;
 
@@ -29,7 +29,7 @@ namespace Tachi.Bootstrap
 		public override void Process(TagHelperContext context, TagHelperOutput output)
 		{
 			output.TagName = "script";
-			output.Attributes["type"] = "text/x-handlebars-template";
+			output.Attributes.SetAttribute("type", "text/x-handlebars-template");
 		}
 	}
 
@@ -63,7 +63,7 @@ namespace Tachi.Bootstrap
 				throw new ArgumentNullException(nameof(output));
 
 			if (Meta.ModelExplorer.Metadata.IsRequired)
-				output.Attributes.Add(new TagHelperAttribute() { Name = "chi-meta-required", Minimized = true });
+				output.Attributes.SetAttribute(new TagHelperAttribute("chi-meta-required", "name", true));
 		}
 	}
 
@@ -113,21 +113,21 @@ namespace Tachi.Bootstrap
 			if (For.ModelExplorer.Metadata.IsRequired)
 				openWrap.AddCssClass("required");
 			openWrap.TagRenderMode = TagRenderMode.StartTag;
-			output.PreElement.Append(openWrap);
+			output.PreElement.AppendHtml(openWrap);
 
 			// append label
 			if (!Flags.HasFlag(WrapFlags.NoLabel))
 			{
 				var label = Generator.GenerateLabel(ViewContext, For.ModelExplorer, For.Name, null, new { @class = "control-label" });
-				output.PreElement.Append(label);
+				output.PreElement.AppendHtml(label);
 			}
 
 			// update input
 			TagHelperAttribute attribute;
 			if (output.Attributes.TryGetAttribute("form-control", out attribute))
-				output.Attributes["class"] = attribute.Value + " form-control";
+				output.Attributes.SetAttribute("class", attribute.Value + " form-control");
 			else
-				output.Attributes["class"] = "form-control";
+				output.Attributes.SetAttribute("class", "form-control");
 
 			// append model state
 			ModelStateEntry modelState;
@@ -139,7 +139,7 @@ namespace Tachi.Bootstrap
 				// generate message
 				var error = modelState.Errors.First();
 
-				output.Attributes["title"] = error.ErrorMessage;
+				output.Attributes.SetAttribute("title", error.ErrorMessage);
 
 				//var errorMessage = Generator.GenerateValidationMessage(ViewContext, For.Name, error.ErrorMessage, "span", new { @class = "ui basic red pointing label" });
 				//output.PostElement.Append(errorMessage);
@@ -148,7 +148,7 @@ namespace Tachi.Bootstrap
 			// close wrapper
 			var closeWrap = new TagBuilder("div");
 			closeWrap.TagRenderMode = TagRenderMode.EndTag;
-			output.PostElement.Append(closeWrap);
+			output.PostElement.AppendHtml(closeWrap);
 		}
 	}
 }

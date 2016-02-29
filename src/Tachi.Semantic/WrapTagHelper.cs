@@ -1,7 +1,7 @@
-﻿using Microsoft.AspNet.Mvc.ModelBinding;
-using Microsoft.AspNet.Mvc.Rendering;
-using Microsoft.AspNet.Mvc.ViewFeatures;
-using Microsoft.AspNet.Razor.TagHelpers;
+﻿using Microsoft.AspNetCore.Mvc.ModelBinding;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.AspNetCore.Mvc.ViewFeatures;
+using Microsoft.AspNetCore.Razor.TagHelpers;
 using System;
 using System.Linq;
 
@@ -53,13 +53,13 @@ namespace Tachi.Semantic
 			if (For.ModelExplorer.Metadata.IsRequired)
 				openWrap.AddCssClass("required");
 			openWrap.TagRenderMode = TagRenderMode.StartTag;
-			output.PreElement.Append(openWrap);
+			output.PreElement.AppendHtml(openWrap);
 
 			// append label
 			if (!Flags.HasFlag(WrapFlags.NoLabel))
 			{
 				var label = Generator.GenerateLabel(ViewContext, For.ModelExplorer, For.Name, null, null);
-				output.PreElement.Append(label);
+				output.PreElement.AppendHtml(label);
 			}
 
 			// append model state
@@ -71,14 +71,14 @@ namespace Tachi.Semantic
 
 				// generate message
 				var error = modelState.Errors.First();
-				var errorMessage = Generator.GenerateValidationMessage(ViewContext, For.Name, error.ErrorMessage, "span", new { @class = "ui basic red pointing label" });
-				output.PostElement.Append(errorMessage);
+				var errorMessage = Generator.GenerateValidationMessage(ViewContext, For.ModelExplorer, For.Name, error.ErrorMessage, "span", new { @class = "ui basic red pointing label" });
+				output.PostElement.AppendHtml(errorMessage);
 			}
 
 			// close wrapper
 			var closeWrap = new TagBuilder("div");
 			closeWrap.TagRenderMode = TagRenderMode.EndTag;
-			output.PostElement.Append(closeWrap);
+			output.PostElement.AppendHtml(closeWrap);
 		}
 	}
 }

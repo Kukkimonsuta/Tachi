@@ -1,11 +1,11 @@
-﻿using Microsoft.AspNet.Http.Extensions;
-using Microsoft.AspNet.Mvc;
-using Microsoft.AspNet.Mvc.ModelBinding;
-using Microsoft.AspNet.Mvc.Rendering;
-using Microsoft.AspNet.Mvc.Routing;
-using Microsoft.AspNet.Mvc.ViewFeatures;
-using Microsoft.AspNet.Razor.TagHelpers;
-using Microsoft.AspNet.Routing;
+﻿using Microsoft.AspNetCore.Http.Extensions;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.AspNetCore.Mvc.Routing;
+using Microsoft.AspNetCore.Mvc.ViewFeatures;
+using Microsoft.AspNetCore.Razor.TagHelpers;
+using Microsoft.AspNetCore.Routing;
 using System;
 using System.Linq;
 
@@ -101,7 +101,7 @@ namespace Tachi
 				// <i class="icon caret down"></i>
 				var icon = new TagBuilder("i");
 				icon.AddCssClass("icon caret");
-				output.PostContent.Append(icon);
+				output.PostContent.AppendHtml(icon);
 
 				if (isDescending)
 					icon.AddCssClass("down");
@@ -109,7 +109,7 @@ namespace Tachi
 					icon.AddCssClass("up");
 			}
 
-			output.Attributes["href"] = BuildUrl(isCurrent && !isDescending);
+			output.Attributes.SetAttribute("href", BuildUrl(isCurrent && !isDescending));
 		}
 	}
 
