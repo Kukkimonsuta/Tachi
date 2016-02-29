@@ -11,6 +11,9 @@
     },
 
     "frameworks": {
-        "dnx46": { }
+        "dnx46": { },
+        "dnxcore50": {
+            "imports": "portable-net452+win81"
+        }
     }
 }
