@@ -7,7 +7,7 @@
     "licenseUrl": "https://github.com/Kukkimonsuta/Tachi/blob/master/LICENSE",
 
     "dependencies": {
-        "Microsoft.AspNetCore.Mvc.TagHelpers": "1.0.0-rc2-*",
+        "Microsoft.AspNetCore.Mvc.TagHelpers": "1.0.0-rc2-20019",
 
         "Tachi": "1.0.0-rc2-*"
     },
