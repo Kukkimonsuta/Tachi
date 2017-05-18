@@ -63,7 +63,7 @@ namespace Tachi.Bootstrap
 				throw new ArgumentNullException(nameof(output));
 
 			if (Meta.ModelExplorer.Metadata.IsRequired)
-				output.Attributes.SetAttribute(new TagHelperAttribute("chi-meta-required", "name", true));
+				output.Attributes.SetAttribute(new TagHelperAttribute("chi-meta-required"));
 		}
 	}
 

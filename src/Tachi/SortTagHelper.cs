@@ -1,13 +1,10 @@
-﻿using Microsoft.AspNetCore.Http.Extensions;
+﻿using System;
+using System.Linq;
+using Microsoft.AspNetCore.Http.Extensions;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.AspNetCore.Mvc.Routing;
 using Microsoft.AspNetCore.Mvc.ViewFeatures;
 using Microsoft.AspNetCore.Razor.TagHelpers;
-using Microsoft.AspNetCore.Routing;
-using System;
-using System.Linq;
 
 namespace Tachi
 {
@@ -101,12 +98,11 @@ namespace Tachi
 				// <i class="icon caret down"></i>
 				var icon = new TagBuilder("i");
 				icon.AddCssClass("icon caret");
-				output.PostContent.AppendHtml(icon);
-
 				if (isDescending)
 					icon.AddCssClass("down");
 				else
 					icon.AddCssClass("up");
+				output.PostContent.AppendHtml(icon);
 			}
 
 			output.Attributes.SetAttribute("href", BuildUrl(isCurrent && !isDescending));

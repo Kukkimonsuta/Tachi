@@ -28,7 +28,7 @@ namespace Tachi.Semantic
 		[HtmlAttributeNotBound]
 		[ViewContext]
 		public ViewContext ViewContext { get; set; }
-
+		
 		[HtmlAttributeName(ForAttributeName)]
 		public ModelExpression For { get; set; }
 

@@ -1,20 +1,21 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.24720.0
+# Visual Studio 15
+VisualStudioVersion = 15.0.26430.6
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{2098D012-11CD-49FA-B1B9-9458C8A2204B}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{4534311B-643E-4231-BC3F-CA7453E42E8F}"
 	ProjectSection(SolutionItems) = preProject
-		global.json = global.json
+		.gitignore = .gitignore
+		LICENSE = LICENSE
 	EndProjectSection
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Tachi", "src\Tachi\Tachi.xproj", "{99D471E0-42FE-42FE-9B20-6C7664E2D49E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tachi", "src\Tachi\Tachi.csproj", "{6D74ABC9-1370-463F-A6E4-C3B992F8C3F9}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Tachi.Semantic", "src\Tachi.Semantic\Tachi.Semantic.xproj", "{1A7B9B64-8DD1-4F3D-9D44-83679E777702}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tachi.Bootstrap", "src\Tachi.Bootstrap\Tachi.Bootstrap.csproj", "{FFF18583-E402-449D-9F84-5E686F0940A1}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Tachi.Bootstrap", "src\Tachi.Bootstrap\Tachi.Bootstrap.xproj", "{2F4D3DC8-5913-4964-9483-CB3CCE15E09B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tachi.Semantic", "src\Tachi.Semantic\Tachi.Semantic.csproj", "{89EFCBBD-44E3-4106-9B2D-7992172CBCCE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -22,25 +23,25 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{99D471E0-42FE-42FE-9B20-6C7664E2D49E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{99D471E0-42FE-42FE-9B20-6C7664E2D49E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{99D471E0-42FE-42FE-9B20-6C7664E2D49E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{99D471E0-42FE-42FE-9B20-6C7664E2D49E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1A7B9B64-8DD1-4F3D-9D44-83679E777702}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1A7B9B64-8DD1-4F3D-9D44-83679E777702}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1A7B9B64-8DD1-4F3D-9D44-83679E777702}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1A7B9B64-8DD1-4F3D-9D44-83679E777702}.Release|Any CPU.Build.0 = Release|Any CPU
-		{2F4D3DC8-5913-4964-9483-CB3CCE15E09B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2F4D3DC8-5913-4964-9483-CB3CCE15E09B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2F4D3DC8-5913-4964-9483-CB3CCE15E09B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2F4D3DC8-5913-4964-9483-CB3CCE15E09B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6D74ABC9-1370-463F-A6E4-C3B992F8C3F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6D74ABC9-1370-463F-A6E4-C3B992F8C3F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6D74ABC9-1370-463F-A6E4-C3B992F8C3F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6D74ABC9-1370-463F-A6E4-C3B992F8C3F9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FFF18583-E402-449D-9F84-5E686F0940A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FFF18583-E402-449D-9F84-5E686F0940A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FFF18583-E402-449D-9F84-5E686F0940A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FFF18583-E402-449D-9F84-5E686F0940A1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{89EFCBBD-44E3-4106-9B2D-7992172CBCCE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{89EFCBBD-44E3-4106-9B2D-7992172CBCCE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{89EFCBBD-44E3-4106-9B2D-7992172CBCCE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{89EFCBBD-44E3-4106-9B2D-7992172CBCCE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{99D471E0-42FE-42FE-9B20-6C7664E2D49E} = {2098D012-11CD-49FA-B1B9-9458C8A2204B}
-		{1A7B9B64-8DD1-4F3D-9D44-83679E777702} = {2098D012-11CD-49FA-B1B9-9458C8A2204B}
-		{2F4D3DC8-5913-4964-9483-CB3CCE15E09B} = {2098D012-11CD-49FA-B1B9-9458C8A2204B}
+		{6D74ABC9-1370-463F-A6E4-C3B992F8C3F9} = {2098D012-11CD-49FA-B1B9-9458C8A2204B}
+		{FFF18583-E402-449D-9F84-5E686F0940A1} = {2098D012-11CD-49FA-B1B9-9458C8A2204B}
+		{89EFCBBD-44E3-4106-9B2D-7992172CBCCE} = {2098D012-11CD-49FA-B1B9-9458C8A2204B}
 	EndGlobalSection
 EndGlobal
